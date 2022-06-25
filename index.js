@@ -1,83 +1,27 @@
-// Requiered Javascript Fundamentals for node js 
-//1. Array
-//2. if-else
-//3. loop
-//4. how to get data from other file to current file
+/* Core Modules : 
+   kuch feature pahle se hame mil jata har programming language me
+   and this all feature is called as core modules.
 
-// ------------------ARRAY-----------------------
+   type: global and non-global
 
-let arrayObj = [10,20,30,40,50];
-console.log(arrayObj);
+   Global:- dont need to import that call as global core modules.
+        example: console.log("i am learing node js");
 
-//print array
-for(let i=0; i<arrayObj.length; i++) {
-    console.log("  "+arrayObj[i]);
-}
+   Non-Global:- needs to import.
+        example: fs (file system)
+*/
 
-let arrayObj2 = [
-    {
-        name: "Mukesh Mishra",
-        class: "First semester"
-    },
-    {
-        name: "Durgesh Mishra",
-        class: "second semester"
-    },
-    {
-        name: "Aman Mishra",
-        class: "third semester"
-    }
-]
+//Global core module example: 
+console.log("hey i am a global core module");
+console.log(__dirname);  //will tell complete file location path 
+console.log(__filename); //will tell file name only
 
-console.log(arrayObj2);
+//non global core modules
+const file = require('fs');
+file.writeFileSync("file1.txt","Hey Mukesh uuhh got success man!! u are doing really good work bro, keep learnig men u are going to complete nodejs within 2 days");
 
-//---------------------CONDITIONS------------------------
-//IF-ELSE concepts  
-
-let a, b, c;
-a = 60;
-b = 300;
-c = 399;
-if(a>b && a>c) {
-    console.log("a is greater");
-}
-else{
-    if(b>a && b>c){
-        console.log("b is greater");
-    }else {
-        console.log("c s greater");
-    }
-}
-
-//--------------------------LOOP-----------------------------
-//for loop
-let marks = [80,30,20,10,22];
-//print each element using for loop
-for(let i=0; i<marks.length; i++) {
-    console.log(marks[i]);
-}
-
-
-//While loop
-//till specific condition looping
-let i=1;
-//print 10 continues number like 1-10 
-while(i<=10) {
-   console.log(i);
-   i++;
-}
-
-
-//iterable
-let names = ["mukesh", "durgesh", "rahul", "mohan" ];
-for(let temp of names) {
-    console.log(temp);
-}
-
-//suppose i want to access data from a another file (sample.js)
-const gettingAnotherFileDataObj = require('./sample');
-console.log("-----------------------------")
-console.log(gettingAnotherFileDataObj.name);
-console.log(gettingAnotherFileDataObj.class);
-console.log(gettingAnotherFileDataObj.mobile);
-console.log(gettingAnotherFileDataObj.z()); 
+/*sare fs feature ko load krne ke bjaay kewal 
+writeFileSync feature ko hi use krna chahte hai toh ye bhi possible hai.
+*/
+const fs = require('fs').writeFileSync;
+fs("trial.txt", "wow u got success!! its amazing");
