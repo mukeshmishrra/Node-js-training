@@ -1,40 +1,74 @@
-/*
-    NODE JS INTRODUCTION
-1.node js is not a programing language.
-2.node js is server environment.
-3.node js can connect with datbase.
-4.code and syntax is very similar to javascript
-5.but not exactly same. (node js we can connect with db (run on server) | javascript- we cant connect with db (Run on browser ))
-6.node js free and open source.
-7.node js uses chrome v8 engine to execute the code.
-8.mostly used for API development
-*/
+// Requiered Javascript Fundamentals for node js 
+//1. Array
+//2. if-else
+//3. loop
 
-/*
-    HISTORY OF NODE JS
-1.first release : 27 may 2009
-2.current version: ........
-3.writen in javascript , c++.
-*/
+// ------------------ARRAY-----------------------
 
-/*
-SETUP | INTALLATION 
-INSTALL NODE JS AND INSTALL VS CODE EDITOR */
+let arrayObj = [10,20,30,40,50];
+console.log(arrayObj);
 
-//----------Basic concepts------------------------- 
+//print array
+for(let i=0; i<arrayObj.length; i++) {
+    console.log("  "+arrayObj[i]);
+}
 
-console.log("Hello world!!")
+let arrayObj2 = [
+    {
+        name: "Mukesh Mishra",
+        class: "First semester"
+    },
+    {
+        name: "Durgesh Mishra",
+        class: "second semester"
+    },
+    {
+        name: "Aman Mishra",
+        class: "third semester"
+    }
+]
 
-//variable and datatype concepts
-let     x = 10;
-let     y = 20;
-const   c = 100
-console.log(c);
-console.log("sum is : " + (x+y));
+console.log(arrayObj2);
 
-//try to change const value again
-//c = 120;   // error we cant change the value the const variable.
-//console.log("after changes : " + c);  //error
+//---------------------CONDITIONS------------------------
+//IF-ELSE concepts  
 
-//let x=50; //error x is already declared
-x = 4;  // output 4
+let a, b, c;
+a = 60;
+b = 300;
+c = 399;
+if(a>b && a>c) {
+    console.log("a is greater");
+}
+else{
+    if(b>a && b>c){
+        console.log("b is greater");
+    }else {
+        console.log("c s greater");
+    }
+}
+
+//--------------------------LOOP-----------------------------
+//for loop
+let marks = [80,30,20,10,22];
+//print each element using for loop
+for(let i=0; i<marks.length; i++) {
+    console.log(marks[i]);
+}
+
+
+//While loop
+//till specific condition looping
+let i=1;
+//print 10 continues number like 1-10 
+while(i<=10) {
+   console.log(i);
+   i++;
+}
+
+
+//iterable
+let names = ["mukesh", "durgesh", "rahul", "mohan" ];
+for(let temp of names) {
+    console.log(temp);
+}
