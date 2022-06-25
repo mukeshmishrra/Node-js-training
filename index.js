@@ -2,6 +2,7 @@
 //1. Array
 //2. if-else
 //3. loop
+//4. how to get data from other file to current file
 
 // ------------------ARRAY-----------------------
 
@@ -72,3 +73,11 @@ let names = ["mukesh", "durgesh", "rahul", "mohan" ];
 for(let temp of names) {
     console.log(temp);
 }
+
+//suppose i want to access data from a another file (sample.js)
+const gettingAnotherFileDataObj = require('./sample');
+console.log("-----------------------------")
+console.log(gettingAnotherFileDataObj.name);
+console.log(gettingAnotherFileDataObj.class);
+console.log(gettingAnotherFileDataObj.mobile);
+console.log(gettingAnotherFileDataObj.z()); 
