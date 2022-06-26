@@ -1,32 +1,30 @@
-/* 
-HOW TO CREATE BASIC SERVER AND RUN ON BROWSER 
-use:- run this program and check on the browser like localhost:given_port_number
-*/
+            /* All about package.json file concept */
+/*AGENDA
+    * What is package file ?
+    * How to create package.json file.
+    * All information available inside package.json desciption line by line
+    * How to install external packages ?
+    
+#1. package:- it contains all informations of a project.
+    like project name, version, git repository link, all required packages etc.
+#2. How to create Package.json file:- npm init (run this command)
+    this will ask for some configuration, give that proper configuration.
+    when u completed configuration and press enter this will create a file
+    package.json file.
 
-const http = require('http');
+    # package.json file is really very important please dont delete it. if u delete this file 
+    then your project is completely destroyable.
 
-//Way-1 (Recommended way)
-/*
-http.createServer((request, response)=> {
-    response.write("<h1>this is mukesh mishra!! and first time i am creating basic server programs.</h1>");
-    response.end();
+    # all installed packages comes under the :
+    dependancies { } 
+    
+    # after  installtion done, its create a folder node-modules and this folder contains all packages.
 
-}).listen(4500);
+    # when you intall any external required packages for project 
+    # then its automatically create a package-lock.json file
+    # we can delete this file and again get this by installing node_moduls(npm intall)
+    
+ */
 
-*/
-
-//way-2nd (by function)
-// function myFunction(request, response) {
-//     response.write("this is demo txt file");
-//     response.end();
-// }
-
-// http.createServer(myFunction).listen(5000);
-
-
-//way-3rd by arrow function
-const myFunction = (request, response) => {
-    response.write("<h1> wow !! congratulation brother u got success!!</h1>");
-    response.end();
-}
-http.createServer(myFunction).listen(4500);
+const color = require('colors');
+console.log("Hey i am using external package here!!!".green);
