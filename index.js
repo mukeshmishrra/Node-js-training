@@ -1,27 +1,32 @@
-/* Core Modules : 
-   kuch feature pahle se hame mil jata har programming language me
-   and this all feature is called as core modules.
-
-   type: global and non-global
-
-   Global:- dont need to import that call as global core modules.
-        example: console.log("i am learing node js");
-
-   Non-Global:- needs to import.
-        example: fs (file system)
+/* 
+HOW TO CREATE BASIC SERVER AND RUN ON BROWSER 
+use:- run this program and check on the browser like localhost:given_port_number
 */
 
-//Global core module example: 
-console.log("hey i am a global core module");
-console.log(__dirname);  //will tell complete file location path 
-console.log(__filename); //will tell file name only
+const http = require('http');
 
-//non global core modules
-const file = require('fs');
-file.writeFileSync("file1.txt","Hey Mukesh uuhh got success man!! u are doing really good work bro, keep learnig men u are going to complete nodejs within 2 days");
+//Way-1 (Recommended way)
+/*
+http.createServer((request, response)=> {
+    response.write("<h1>this is mukesh mishra!! and first time i am creating basic server programs.</h1>");
+    response.end();
 
-/*sare fs feature ko load krne ke bjaay kewal 
-writeFileSync feature ko hi use krna chahte hai toh ye bhi possible hai.
+}).listen(4500);
+
 */
-const fs = require('fs').writeFileSync;
-fs("trial.txt", "wow u got success!! its amazing");
+
+//way-2nd (by function)
+// function myFunction(request, response) {
+//     response.write("this is demo txt file");
+//     response.end();
+// }
+
+// http.createServer(myFunction).listen(5000);
+
+
+//way-3rd by arrow function
+const myFunction = (request, response) => {
+    response.write("<h1> wow !! congratulation brother u got success!!</h1>");
+    response.end();
+}
+http.createServer(myFunction).listen(4500);
