@@ -1,30 +1,24 @@
-            /* All about package.json file concept */
-/*AGENDA
-    * What is package file ?
-    * How to create package.json file.
-    * All information available inside package.json desciption line by line
-    * How to install external packages ?
-    
-#1. package:- it contains all informations of a project.
-    like project name, version, git repository link, all required packages etc.
-#2. How to create Package.json file:- npm init (run this command)
-    this will ask for some configuration, give that proper configuration.
-    when u completed configuration and press enter this will create a file
-    package.json file.
+/*
+* HOW TO CREATE SIMPLE API WITH STATIC DATA WITHOUT DATABASE CONNECTIVITY
+*/
 
-    # package.json file is really very important please dont delete it. if u delete this file 
-    then your project is completely destroyable.
+const http = require("http");
+const data = require('./data');
+http.createServer((req, resp) => {
+    //front end se kuch data lana rhta to req use krte.
+    resp.writeHead(200, { 'Content-Type': 'application\json' });
 
-    # all installed packages comes under the :
-    dependancies { } 
-    
-    # after  installtion done, its create a folder node-modules and this folder contains all packages.
+    //same file se data write krne ke liye
 
-    # when you intall any external required packages for project 
-    # then its automatically create a package-lock.json file
-    # we can delete this file and again get this by installing node_moduls(npm intall)
-    
- */
+    // resp.write(JSON.stringify({
+    //     name:"mukesh mishra", 
+    //     class: "BE 8th semester",
+    //     city: "Basna",
+    //     mobile: "389283293"
+    // }));
 
-const color = require('colors');
-console.log("Hey i am using external package here!!!".green);
+    //i am getting data from another file (data)
+    resp.write(JSON.stringify(data));
+    resp.end();
+
+}).listen(4500);
