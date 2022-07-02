@@ -1,24 +1,49 @@
 /*
-* HOW TO CREATE SIMPLE API WITH STATIC DATA WITHOUT DATABASE CONNECTIVITY
+* How to create crud option using file system
+without using database
 */
+const fs = require("fs");
+const path = require("path");
 
-const http = require("http");
-const data = require('./data');
-http.createServer((req, resp) => {
-    //front end se kuch data lana rhta to req use krte.
-    resp.writeHead(200, { 'Content-Type': 'application\json' });
+//this will provide us current path
+const dirPath = path.join(__dirname,'crud');
+const filePath = `${dirPath}/data.txt`;
 
-    //same file se data write krne ke liye
+//CREATE OPERATION
+fs.writeFileSync(filePath,'hey i am creating crud operation over create part');
+/*result:- crud folder > data.txt create ho jayega. */
 
-    // resp.write(JSON.stringify({
-    //     name:"mukesh mishra", 
-    //     class: "BE 8th semester",
-    //     city: "Basna",
-    //     mobile: "389283293"
-    // }));
+//READ OPERATION
+fs.readFile(filePath,'utf8',(error, val)=>{
+    console.log(val);
+})
+/* output : hey i am creating crud operation over create part */
 
-    //i am getting data from another file (data)
-    resp.write(JSON.stringify(data));
-    resp.end();
+//UPDATE OPERATION
+fs.appendFile(filePath, ". now i am going to update new records using the appendFile function lets see this will work or not.",(err)=>{
+   if(!err) console.log("data successfully updated!!");
+});
+/* result:  data successfully updated!! */
 
-}).listen(4500);
+//RENAME EXISTING FILE NAME 
+     //data.txt --> records.txt
+fs.rename(filePath, `${dirPath}/records.txt`, (err)=>{
+    if(!err) console.log("file name changed successfully.");
+})
+ /*result: file name changed successfully */  
+
+ //DELETE OPERATION
+
+//file name path access
+const filename  = `${dirPath}/file.txt`;
+fs.unlink(filename, (err)=>{
+    if(!err) console.log("delete success")
+}); 
+
+
+
+
+
+
+
+
