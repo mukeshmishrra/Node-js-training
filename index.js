@@ -1,49 +1,47 @@
-/*
-* How to create crud option using file system
-without using database
-*/
-const fs = require("fs");
-const path = require("path");
+// Asynchronous Basic Concepts::
 
-//this will provide us current path
-const dirPath = path.join(__dirname,'crud');
-const filePath = `${dirPath}/data.txt`;
+/**
+ * Synchronous concept: 
+ *  for Example suppose 
+  block1
+  block2
+  block3
 
-//CREATE OPERATION
-fs.writeFileSync(filePath,'hey i am creating crud operation over create part');
-/*result:- crud folder > data.txt create ho jayega. */
+ * execution --> block1 run hoga aur jab iska execution complete ho jayega tab block2 and then block 3 so on.....  
+ * 
 
-//READ OPERATION
-fs.readFile(filePath,'utf8',(error, val)=>{
-    console.log(val);
-})
-/* output : hey i am creating crud operation over create part */
+ * Asynchronous concept: 
+ * second task doesn't wait for completion of first task.
+ 
+ * node.js is a asynchronous programming language. 
+ * javascript is a asynchronous programming language.
+ * 
+ */  
+  
+console.log("Task 1");
 
-//UPDATE OPERATION
-fs.appendFile(filePath, ". now i am going to update new records using the appendFile function lets see this will work or not.",(err)=>{
-   if(!err) console.log("data successfully updated!!");
-});
-/* result:  data successfully updated!! */
+setTimeout(()=>{
+    console.log("Task 2");    
+},2000);
 
-//RENAME EXISTING FILE NAME 
-     //data.txt --> records.txt
-fs.rename(filePath, `${dirPath}/records.txt`, (err)=>{
-    if(!err) console.log("file name changed successfully.");
-})
- /*result: file name changed successfully */  
+console.log("Task 3");
 
- //DELETE OPERATION
+//Output 
+    //Task 1
+    //Task 3
+    //Task 2
 
-//file name path access
-const filename  = `${dirPath}/file.txt`;
-fs.unlink(filename, (err)=>{
-    if(!err) console.log("delete success")
-}); 
+    //-----------------------------------------------------------
+//Drowback
 
+let a=10;
+let b=0;
+setTimeout(()=>{
+    b=50;
+},2000);
 
+console.warn(a+b);
 
+//output:   10    it should be 60 but I am getting 10 as a output.
 
-
-
-
-
+//concept 2 check index1.js (How to handle aynchronous data)
